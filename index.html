@@ -9,13 +9,21 @@
   <body>
     <!-- Webflow Links - Site Level -->
 
-    <link rel="stylesheet" href="https://mother-africa.netlify.app/site.css" />
+    <!-- This stylesheet embeded in webflow as Global Styles symbol instead of being linked -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollToPlugin.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://mother-africa.netlify.app/styles.css"
+    />
 
-    <!-- Webflow Links - Page Level -->
+    <!-- These links set at project level in webflow, in head code -->
+
+    <!-- GSAP links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://mother-africa.netlify.app/js/gsap/ScrollSmoother.min.js"></script>
+
+    <!-- These links set at page level in webflow, before </body> tag  -->
 
     <script src="https://mother-africa.netlify.app/js/home.js"></script>
 
