@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-var version = 1.0;
+var version = 1.1;
 
 // create the smooth scroller FIRST!
 
