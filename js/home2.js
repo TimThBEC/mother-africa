@@ -6,7 +6,12 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-var version = 1.2;
+var version = 1.3;
+
+let homepageHeaderSection = ".homepage-header_section",
+  navLogoLink = ".navbar_logo-link",
+  navTitleText = ".navbar_title-text",
+  navLogoColor = ".ma-icon_outer-fill";
 
 // create the smooth scroller FIRST!
 
@@ -23,14 +28,16 @@ const smoother = ScrollSmoother.create({
 $(document).ready(function () {
   console.log("index.js v" + version);
   constructSplide();
+  gsapSetup();
 });
 
 /* 
     ---------- Functions ----------
 */
-function constructSplide() {
-  // Construct splide slider
 
+// Splide slider
+
+function constructSplide() {
   new Splide(".splide", {
     perPage: 1,
     perMove: 1,
@@ -40,4 +47,23 @@ function constructSplide() {
     interval: 8000,
     pauseOnHover: false
   }).mount();
-} //End constructSplide
+}
+
+// GSAP Animations
+
+function gsapSetup() {
+  var navLogoTL = gsap.timeline({
+    scrollTrigger: {
+      trigger: homepageHeaderSection,
+      start: "top top",
+      end: "15% top",
+      scrub: true,
+      markers: true
+    }
+  });
+
+  navLogoTL
+    .to(navLogoLink, { scale: 1, y: "0vh" })
+    .to(navTitleText, { y: "0vh", color: "white" }, "<")
+    .to(navLogoColor, { color: "white" }, "<");
+}
