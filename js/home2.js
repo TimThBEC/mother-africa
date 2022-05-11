@@ -58,7 +58,7 @@ function gsapSetup() {
       start: "top top",
       end: "15% top",
       scrub: true,
-      markers: true
+      markers: false
     }
   });
 
