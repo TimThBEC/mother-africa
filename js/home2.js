@@ -6,12 +6,14 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-var version = 1.4;
+var version = 1.5;
 
 let homepageHeaderSection = ".homepage-header_section",
   navLogoLink = ".navbar_logo-link",
   navTitleText = ".navbar_title-text",
-  navLogoColor = ".ma-icon_outer-fill";
+  navLogoColor = ".ma-icon_outer-fill",
+  donateButton = ".navbar_button-wrapper",
+  donateButtonColor = ".icon-donate_fill-1";
 
 // create the smooth scroller FIRST!
 
@@ -65,5 +67,7 @@ function gsapSetup() {
   navLogoTL
     .to(navLogoLink, { scale: 1, y: "0vh" })
     .to(navTitleText, { y: "0vh", color: "white" }, "<")
-    .to(navLogoColor, { color: "white" }, "<");
+    .to(navLogoColor, { color: "white" }, "<")
+    .to(donateButton, { scale: 1, y: "0vh" }, "<")
+    .to(donateButtonColor, { fill: "white" }, "<");
 }
