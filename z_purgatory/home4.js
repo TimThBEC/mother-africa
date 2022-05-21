@@ -6,12 +6,13 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-var version = 1.6;
+var version = 1.8;
 
 let homepageHeaderSection = ".homepage-header_section",
   navLogoLink = ".navbar_logo-link",
   navTitleText = ".navbar_title-text",
   navLogoColor = ".ma-icon_outer-fill",
+  navbarButtonWrapper = ".navbar_button-wrapper",
   donateButton = ".navbar_button-wrapper",
   donateButtonColor = ".icon-donate_fill-1";
 
@@ -69,5 +70,6 @@ function gsapSetup() {
     .to(navTitleText, { y: "0vh", color: "white" }, "<")
     .to(navLogoColor, { color: "white" }, "<")
     .to(donateButton, { scale: 1, y: "0vh" }, "<")
-    .to(donateButtonColor, { fill: "white" }, "<");
+    .to(donateButtonColor, { fill: "white" }, "<")
+    .to(navbarButtonWrapper, { flexDirection: "row" }, "<");
 }
