@@ -4,9 +4,9 @@
     ---------- Init Stuff ----------
 */
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 1.8;
+var version = 1.9;
 
 let homepageHeaderSection = ".homepage-header_section",
   navLogoLink = ".navbar_logo-link",
@@ -14,7 +14,10 @@ let homepageHeaderSection = ".homepage-header_section",
   navLogoColor = ".ma-icon_outer-fill",
   donateButton = ".navbar_button-wrapper",
   donateButtonColor = ".icon-donate_fill-1",
-  donateText = ".donate-text";
+  donateText = ".donate-text",
+  lifecycleCard = ".lifecycle_card",
+  lifecycleDetails = ".panel2",
+  LifecycleDetailsClosed = "closed"; // Note no leading period because used for toggleClass
 
 // create the smooth scroller FIRST!
 
@@ -32,6 +35,10 @@ $(document).ready(function () {
   console.log("index.js v" + version);
   constructSplide();
   gsapSetup();
+
+  $(lifecycleCard).click(() => {
+    lifecycle();
+  });
 });
 
 /* 
@@ -71,4 +78,16 @@ function gsapSetup() {
     .to(navLogoColor, { color: "white" }, "<")
     .to(donateButton, { scale: 1, y: "0vh" }, "<")
     .to(donateText, { color: "white" }, "<");
+}
+
+// Other Functions
+
+function lifecycle() {
+  console.log("lifecycle card clicked");
+
+  const state = Flip.getState(lifecycleDetails);
+
+  $(lifecycleDetails).toggleClass(LifecycleDetailsClosed);
+
+  Flip.from(state, { duration: 0.5, ease: "power1.inOut" });
 }
