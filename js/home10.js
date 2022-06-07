@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 1.9;
+var version = 1.93;
 
 let homepageHeaderSection = ".homepage-header_section",
   navLogoLink = ".navbar_logo-link",
@@ -36,9 +36,30 @@ $(document).ready(function () {
   constructSplide();
   gsapSetup();
 
-  $(lifecycleCard).click(() => {
+  /* Temp disable
+  $(lifecycleCard).click((this) => {
     lifecycle();
   });
+
+end temp disable */
+
+  // start test code
+
+  let lCCards = gsap.utils.toArray(lifecycleCard);
+
+  lCCards.forEach((lCCard) => {
+    let lCCardIndexTemp = lCCards.indexOf(lCCard);
+    console.log("Found card with index = " + lCCardIndexTemp);
+    $(lCCard).click(() => {
+      let lCCardIndex = lCCards.indexOf(lCCard);
+      console.log("Card with index = " + lCCardIndex + " has been clicked!");
+      let hope = $(lCCard).find(".panel2");
+
+      lifecycle(hope);
+    });
+  });
+
+  // end test code
 });
 
 /* 
@@ -82,12 +103,12 @@ function gsapSetup() {
 
 // Other Functions
 
-function lifecycle() {
+function lifecycle(hope) {
   console.log("lifecycle card clicked");
 
   const state = Flip.getState(lifecycleDetails);
 
-  $(lifecycleDetails).toggleClass(LifecycleDetailsClosed);
+  $(hope).toggleClass(LifecycleDetailsClosed);
 
   Flip.from(state, { duration: 0.5, ease: "power1.inOut" });
 }
