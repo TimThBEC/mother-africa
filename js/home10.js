@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 1.93;
+var version = 2.01;
 
 let homepageHeaderSection = ".homepage-header_section",
   navLogoLink = ".navbar_logo-link",
