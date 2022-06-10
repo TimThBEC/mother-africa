@@ -6,17 +6,16 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 2.04;
+var version = 2.06;
 
 let homepageHeaderSection = ".homepage-header_section",
   navLogoLink = ".navbar_logo-link",
   navTitleText = ".navbar_title-text",
   navLogoColor = ".ma-icon_outer-fill",
   donateButton = ".navbar_button-wrapper",
-  donateButtonColor = ".icon-donate_fill-1",
   donateText = ".donate-text",
   lifecycleComponent = ".lifecycle_component",
-  lifecycleCard = ".lifecycle_card",
+  lifecycleIcon = ".lifecycle_icon",
   lifecycleDetails = ".panel2",
   LifecycleDetailsClosed = "closed"; // Note no leading period because used for toggleClass
 
@@ -84,9 +83,10 @@ function lifeCycleAnimation() {
 
   // Add click functionality to each component in array
   lCComponents.forEach((lCComponent) => {
-    $(lCComponent).click(() => {
+    let lCPanel2 = $(lCComponent).find(lifecycleDetails);
+    let lCIcon = $(lCComponent).find(lifecycleIcon);
+    $(lCIcon).click(() => {
       // Toggle state of component card
-      let lCPanel2 = $(lCComponent).find(lifecycleDetails);
       lifecycleCardToggle(lCPanel2);
     });
   });
