@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 2.01;
+var version = 2.04;
 
 let homepageHeaderSection = ".homepage-header_section",
   navLogoLink = ".navbar_logo-link",
@@ -15,6 +15,7 @@ let homepageHeaderSection = ".homepage-header_section",
   donateButton = ".navbar_button-wrapper",
   donateButtonColor = ".icon-donate_fill-1",
   donateText = ".donate-text",
+  lifecycleComponent = ".lifecycle_component",
   lifecycleCard = ".lifecycle_card",
   lifecycleDetails = ".panel2",
   LifecycleDetailsClosed = "closed"; // Note no leading period because used for toggleClass
@@ -34,39 +35,15 @@ const smoother = ScrollSmoother.create({
 $(document).ready(function () {
   console.log("index.js v" + version);
   constructSplide();
-  gsapSetup();
-
-  /* Temp disable
-  $(lifecycleCard).click((this) => {
-    lifecycle();
-  });
-
-end temp disable */
-
-  // start test code
-
-  let lCCards = gsap.utils.toArray(lifecycleCard);
-
-  lCCards.forEach((lCCard) => {
-    let lCCardIndexTemp = lCCards.indexOf(lCCard);
-    console.log("Found card with index = " + lCCardIndexTemp);
-    $(lCCard).click(() => {
-      let lCCardIndex = lCCards.indexOf(lCCard);
-      console.log("Card with index = " + lCCardIndex + " has been clicked!");
-      let hope = $(lCCard).find(".panel2");
-
-      lifecycle(hope);
-    });
-  });
-
-  // end test code
+  navBarAnimation();
+  lifeCycleAnimation();
 });
 
 /* 
     ---------- Functions ----------
 */
 
-// Splide slider
+// Splide slider function
 
 function constructSplide() {
   new Splide(".splide", {
@@ -80,9 +57,9 @@ function constructSplide() {
   }).mount();
 }
 
-// GSAP Animations
+// Animation Functions
 
-function gsapSetup() {
+function navBarAnimation() {
   var navLogoTL = gsap.timeline({
     scrollTrigger: {
       trigger: homepageHeaderSection,
@@ -101,14 +78,22 @@ function gsapSetup() {
     .to(donateText, { color: "white" }, "<");
 }
 
-// Other Functions
+function lifeCycleAnimation() {
+  // Create array of all lifecycle components
+  let lCComponents = gsap.utils.toArray(lifecycleComponent);
 
-function lifecycle(hope) {
-  console.log("lifecycle card clicked");
+  // Add click functionality to each component in array
+  lCComponents.forEach((lCComponent) => {
+    $(lCComponent).click(() => {
+      // Toggle state of component card
+      let lCPanel2 = $(lCComponent).find(lifecycleDetails);
+      lifecycleCardToggle(lCPanel2);
+    });
+  });
+}
 
-  const state = Flip.getState(lifecycleDetails);
-
-  $(hope).toggleClass(LifecycleDetailsClosed);
-
+function lifecycleCardToggle(lCPanel2) {
+  const state = Flip.getState(lCPanel2);
+  $(lCPanel2).toggleClass(LifecycleDetailsClosed);
   Flip.from(state, { duration: 0.5, ease: "power1.inOut" });
 }
