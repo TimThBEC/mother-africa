@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 2.07;
+var version = 2.11;
 
 // Header section variables
 
@@ -55,15 +55,32 @@ $(document).ready(function () {
     ---------- Functions ----------
 */
 
-// Splide slider function
+// Splide slider functions
 
 function constructSplide() {
-  new Splide(".splide", {
+  // Header splide
+
+  new Splide("#hero_splide", {
     perPage: 1,
     perMove: 1,
     speed: 4000,
     type: "loop",
+    arrows: false,
     autoplay: true,
+    interval: 8000,
+    pauseOnHover: false
+  }).mount();
+
+  // Stories splide
+
+  new Splide("#stories_splide", {
+    perPage: 3,
+    perMove: 1,
+    speed: 4000,
+    type: "loop",
+    pagination: false,
+    autoplay: true,
+    drag: true,
     interval: 8000,
     pauseOnHover: false
   }).mount();
@@ -128,11 +145,22 @@ function impactAnimation() {
       impDetails = $(impComponent).find(impactDetails);
 
     $(impComponent).click(() => {
-      // Toggle state of component card using GSAP FLIP animation
+      // Prep GSAP FLIP
+
+      let impAll =
+        ".impact_top, .impact_icon, .impact_highlight, .impact_details";
+
+      const impState = Flip.getState(impAll);
+
+      // Toggle state of component card
       $(impTop).toggleClass(impactComponentClosed);
       $(impIcon).toggleClass(impactComponentClosed);
       $(impHiglight).toggleClass(impactComponentClosed);
       $(impDetails).toggleClass(impactComponentClosed);
+
+      // Animate class toggle with GSAP FLIP
+
+      Flip.from(impState, { duration: 0.5, ease: "power1.inOut" });
     });
   });
 }
