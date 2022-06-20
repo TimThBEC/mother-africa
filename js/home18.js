@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 2.11;
+var version = 2.12;
 
 // Header section variables
 
