@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 2.12;
+var version = 2.13;
 
 // Header section variables
 
@@ -33,11 +33,14 @@ let homepageHeaderSection = ".homepage-header_section",
 
 // create the smooth scroller FIRST!
 
+/* Temp disable smooth scrolling due to footer issue
 const smoother = ScrollSmoother.create({
   wrapper: "#gsap-scroll-smoother-wrapper",
   content: "#gsap-scroll-smoother-content",
   smooth: 2
 });
+
+ end temp disable of smooth scrolling*/
 
 /* 
     ---------- Doc Ready ----------
