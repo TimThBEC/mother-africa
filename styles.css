@@ -1,4 +1,12 @@
-/* Mother Africa CSS v1.0 */
+<style>
+
+/* Mother Africa CSS v1.1 */
+
+.splide__arrow {
+
+display: none;
+
+}
 
 /* Fluid responsive - finsweet client-first code */
 
@@ -116,10 +124,50 @@ a {
   display: none; // Safari and Chrome
 }
 
-/* Splide Styles */
-
-.splide__track {
-  overflow: visible;
-}
-
 /* Project-specifc styles (custom) */
+
+/* Origins Map */
+
+.map_section {pointer-events: none;}
+
+#middle-east { pointer-events: auto;
+cursor: pointer;
+fill: #e62470;}
+
+#middle-east:hover {fill: #ffffff;}
+
+#north-africa { pointer-events: auto;
+cursor: pointer;
+fill: #652c90;}
+
+#north-africa:hover {fill: #ffffff;}
+
+
+#east-africa { pointer-events: auto;
+cursor: pointer;
+fill: #ea743e;}
+
+#east-africa:hover {fill: #ffffff;}
+
+#south-africa { pointer-events: auto;
+cursor: pointer;
+fill: #ffc43c;}
+
+#south-africa:hover {fill: #ffffff;}
+
+
+#west-africa { pointer-events: auto;
+cursor: pointer;
+fill: #20733b;}
+
+#west-africa:hover {fill: #ffffff;}
+
+#central-africa { pointer-events: auto;
+cursor: pointer;
+fill: #b02036;}
+
+#central-africa:hover {fill: #ffffff;}
+
+
+
+</style>
