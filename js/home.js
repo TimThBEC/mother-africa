@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 2.15;
+var version = 2.16;
 
 // Header section variables
 
@@ -163,7 +163,7 @@ function impactAnimation() {
 
       // Animate class toggle with GSAP FLIP
 
-      Flip.from(impState, { duration: 0.5, ease: "power1.inOut" });
+      Flip.from(impState, { duration: 3, ease: "power1.inOut" });
     });
   });
 }
