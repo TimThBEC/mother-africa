@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-var version = 2.16;
+var version = 2.17;
 
 // Header section variables
 
@@ -150,10 +150,10 @@ function impactAnimation() {
     $(impComponent).click(() => {
       // Prep GSAP FLIP
 
-      let impAll =
-        ".impact_top, .impact_icon, .impact_highlight, .impact_details";
+      //let impAll =
+       // ".impact_top, .impact_icon, .impact_highlight, .impact_details";
 
-      const impState = Flip.getState(impAll);
+      const impState = Flip.getState([impTop, impIcon, impHiglight, impDetails]);
 
       // Toggle state of component card
       $(impTop).toggleClass(impactComponentClosed);
