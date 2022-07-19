@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(Flip);
 
-var version = 1.04;
+var version = 1.05;
 
 let teamMemberBio = ".team-member_bio",
 bioClosed = "closed";  // Note no leading period, for use in toggleclass
@@ -49,7 +49,7 @@ function teamCardAnimation() {
       
       // Animate class toggle with GSAP FLIP
 
-      Flip.from(bioState, { duration: 0.5, ease: "power1.inOut" });
+      Flip.from(bioState, { duration: 03, ease: "power1.inOut" });
     });
   });
 }
