@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(Flip);
 
-var version = 1.01;
+var version = 1.02;
 
 let teamMemberBio = ".team-member_bio",
 bioClosed = "closed";  // Note no leading period, for use in toggleclass
@@ -17,7 +17,7 @@ bioClosed = "closed";  // Note no leading period, for use in toggleclass
 
 
   console.log("index.js v" + version);
-  teamCardAnimation();
+  //teamCardAnimation();
   
 /* 
     ---------- Functions ----------
