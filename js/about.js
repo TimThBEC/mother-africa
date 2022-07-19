@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(Flip);
 
-var version = 1.00;
+var version = 1.01;
 
 let teamMemberBio = ".team-member_bio",
 bioClosed = "closed";  // Note no leading period, for use in toggleclass
@@ -36,7 +36,7 @@ function teamCardAnimation() {
 
     // Find parent card for click
 
-    let parentCard = $(bio).parent();,
+    let parentCard = $(bio).parent();
       
     $([parentCard]).click(() => {
       // Prep GSAP FLIP
